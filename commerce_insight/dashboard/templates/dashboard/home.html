@@ -1,0 +1,18 @@
+<h2>E-Commerce Analytics Dashboard</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload CSV</button>
+</form>
+
+{% if result %}
+    <hr>
+    <h3>Total Revenue: ₹ {{ result.total_revenue }}</h3>
+
+    <h3>Monthly Sales:</h3>
+    <pre>{{ result.monthly_sales }}</pre>
+
+    <h3>Top Products:</h3>
+    <pre>{{ result.top_products }}</pre>
+{% endif %}
